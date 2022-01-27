@@ -1,0 +1,31 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class=" col-12 heading bg-warning text-center my-5">
+            <h1>This is a Blog app</h1>
+        </div>
+    </div>
+    <div class="row">
+        {% for post in posts reversed %}
+            <div class="col-4">
+                <div class="card">
+                    <img class="card-img-top" height="200px" src="{{post.image.url}}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.body|truncatewords:10}}.</p>
+                        <a href="{% url 'details' post.id %}" class="btn btn-warning btn-block font-weight-bold">Details...</a>
+                    </div>
+                    <div class="card-footer">
+                        <small class="font-weight-bold">{{post.created_at}}</small>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

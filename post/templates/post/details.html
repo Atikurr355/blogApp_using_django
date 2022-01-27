@@ -1,0 +1,24 @@
+
+{% extends 'post/base.html' %}
+{% load static %}
+{% block title %}Index{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+   
+  </div>
+  <div class="col-12 my-5">
+    <div class="media text-justify">
+      <img class="mr-3" height="200px" src="{{posts.image.url}}" alt="image">
+      <div class="media-body">
+        <h3 class="mt-0"> {{posts.title}} hello </h3>
+        {{posts.body}} hello 2
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
+
